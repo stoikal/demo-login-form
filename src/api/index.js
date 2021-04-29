@@ -14,6 +14,9 @@ export default class Api {
         username,
         password
       })
+    },
+    register: (data) => {
+      return this._client.post('/register', data)
     }
   }
 

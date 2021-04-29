@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Api from '../../api';
 import { useAuth } from '../../hooks/useAuth'; 
 
@@ -49,6 +49,7 @@ const Login = () => {
       >
         login
       </button>
+      <Link to="/register">register?</Link>
     </div>
   );
 };

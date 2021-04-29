@@ -28,9 +28,32 @@ function useProvideAuth() {
     }
   };
 
+  const register = async (credentials, successCb, errorCb) => {
+    const { username, password, email } = credentials;
+    const api = new Api()
+    const res = await api.user.register({
+      email,
+      username,
+      password
+    })
+    
+    if (res.status === 200) {
+      setUser(res.data.data);
+      console.log(res.data.data)
+      if (typeof successCb === 'function') {
+        successCb()
+      }
+    } else {
+      if (typeof errorCb === 'function') {
+        errorCb()
+      }
+    }
+  };
+
   return {
     user,
-    login
+    login,
+    register
   };
 }
 
