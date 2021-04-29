@@ -16,16 +16,4 @@ export default class Api {
       })
     }
   }
-
-  home = {
-    retrieve: () => {
-      return this._client.get('/api/home')
-    }
-  }
-
-  menu = {
-    listCategories: (data) => {
-      return this._client.post('/api/menu', data)
-    }
-  }
 }
