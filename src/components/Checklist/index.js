@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import List from './list'
 
-const Checklists = ({ lists, onRemove }) => {
+const Checklists = ({ lists, onRemove, onRemoveItem }) => {
   console.log(lists)
   return (
     <div>
@@ -13,6 +13,7 @@ const Checklists = ({ lists, onRemove }) => {
             key={id}
             listData={singleList}
             onRemove={onRemove}
+            onRemoveItem={onRemoveItem}
           />
         )
       })}

@@ -24,11 +24,18 @@ const Home = () => {
   }
 
   const handleRemove = async (listId) => {
-    console.log('handleRemove')
     const api = new Api({ token: user.token });
 
     const res = await api.checklist.remove(listId);
-    console.log('handleRemove2')
+    if (res.status === 200) {
+      fetchList()
+    }
+  }
+
+  const handleRemoveItem = async (itemId) => {
+    const api = new Api({ token: user.token });
+
+    const res = await api.checklist.removeItem(itemId);
     if (res.status === 200) {
       fetchList()
     }
@@ -39,6 +46,7 @@ const Home = () => {
       <Checklists 
         lists={checklists}
         onRemove={handleRemove}
+        onRemoveItem={handleRemoveItem}
       />
     </div>
   );
