@@ -8,6 +8,8 @@ import { useAuth } from '../../hooks/useAuth';
 
 export default function PrivateRoute({ children, ...rest }) {
   const auth = useAuth();
+
+  console.log(auth.user)
  
   return (
     <Route

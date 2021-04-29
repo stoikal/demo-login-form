@@ -16,7 +16,8 @@ function useProvideAuth() {
     })
     
     if (res.status === 200) {
-      setUser(res.data);
+      setUser(res.data.data);
+
       if (typeof successCb === 'function') {
         successCb()
       }

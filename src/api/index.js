@@ -16,4 +16,10 @@ export default class Api {
       })
     }
   }
+
+  checklist = {
+    list: () => {
+      return this._client.get('/checklist')
+    }
+  }
 }
