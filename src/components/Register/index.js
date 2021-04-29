@@ -27,9 +27,8 @@ const Register = () => {
     auth.register(
       creds,
       () => {
-        auth.login({
-          creds 
-        })
+        auth.login(
+          { creds }, () => history.push('/home'))
       },
       () => setIsSubmitting(false)
     )
