@@ -11,20 +11,34 @@ const Home = () => {
   useEffect(() => {
     if (!user.token) return;
 
-    (async () => {
-      const api = new Api({ token: user.token });
-      const res = await api.checklist.list();
-
-      if (res.status === 200) {
-        setChecklists(res.data.data)
-      }
-    })()
+    fetchList()
   }, [])
+
+  const fetchList = async () => {
+    const api = new Api({ token: user.token });
+    const res = await api.checklist.list();
+
+    if (res.status === 200) {
+      setChecklists(res.data.data)
+    }
+  }
+
+  const handleRemove = async (listId) => {
+    console.log('handleRemove')
+    const api = new Api({ token: user.token });
+
+    const res = await api.checklist.remove(listId);
+    console.log('handleRemove2')
+    if (res.status === 200) {
+      fetchList()
+    }
+  }
 
   return (
     <div>
       <Checklists 
         lists={checklists}
+        onRemove={handleRemove}
       />
     </div>
   );

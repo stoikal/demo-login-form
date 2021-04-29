@@ -35,8 +35,13 @@ export default class Client {
       .catch((err) => err)
   }
 
-  post(endpoint, data,) {
+  post(endpoint, data) {
     return axios(this._baseUrl + endpoint, this._getConfig('post', data))
+    .catch((err) => err)
+  }
+
+  delete(endpoint) {
+    return axios(this._baseUrl + endpoint, this._getConfig('delete'))
     .catch((err) => err)
   }
 }

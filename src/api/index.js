@@ -20,6 +20,10 @@ export default class Api {
   checklist = {
     list: () => {
       return this._client.get('/checklist')
+    },
+    remove: (id) => {
+      console.log('hello removing')
+      return this._client.delete(`/checklist/${id}`)
     }
   }
 }
