@@ -1,8 +1,20 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Login from './components/Login';
 
 export default () => (
-  <>
-    <h1>Welcome to React Parcel Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
-  </>
+  <div>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Login />
+        </Route>
+      </Switch>
+    </Router>
+  </div>
 );
